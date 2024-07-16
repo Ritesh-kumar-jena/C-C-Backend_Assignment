@@ -1,0 +1,9 @@
+
+Tue Jul 16 2024 23:51:33 GMT+0530 (India Standard Time)--->Cast must be an array of strings.
+Tue Jul 16 2024 23:55:24 GMT+0530 (India Standard Time)--->Cast must be an array of strings.
+Tue Jul 16 2024 23:56:03 GMT+0530 (India Standard Time)--->ID must be an number.
+Wed Jul 17 2024 00:00:49 GMT+0530 (India Standard Time)--->Name must be an array of strings.
+Wed Jul 17 2024 00:01:18 GMT+0530 (India Standard Time)--->Rating must be an number.
+Wed Jul 17 2024 00:01:41 GMT+0530 (India Standard Time)--->Description must be an strings.
+Wed Jul 17 2024 00:01:59 GMT+0530 (India Standard Time)--->Genre must be an strings.
+Wed Jul 17 2024 00:02:18 GMT+0530 (India Standard Time)--->Cast must be an array of strings.
