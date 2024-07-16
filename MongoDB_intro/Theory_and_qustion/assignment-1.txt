@@ -1,0 +1,83 @@
+1. What is a NoSQL Database, and explain the types of NoSQL database?
+   
+   Ans : NoSQL stands for Not only Structured Query Language .It is use for storage and retrieval of data.
+         There are four type of NoSQL database 
+                                     (I)Document Stores:- Store and retrieve documents, which are typically in JSON, BSON, or XML format.
+                                     (II)Key-Value Stores:- Use a simple key-value pair for data storage. They are highly performant and can handle high-velocity data.
+                                     (III)Column-Family Stores:- Store data in columns rather than rows, allowing efficient retrieval of large volumes of data. They can manage and access data across distributed systems.
+                                     (Iv)Graph Databases:- Use graph structures with nodes, edges, and properties to represent and store data. 
+   
+2. What is the difference between SQL and NoSQL databases?
+   
+   Ans : (I) SQL Databases:(Structured Query Language)
+               Use a structured data model based on tables with rows and columns.
+               Enforce a predefined schema, meaning the structure of the data is fixed and must be defined before data is entered.
+        (II) NoSQL Databases:(Not only Structured Query Language)
+               Use a variety of data models, including document, key-value, column-family, and graph.
+               Typically have dynamic schemas, allowing for flexible, schema-less data storage.
+
+3. How to choose between MongoDB and MySQL based on your requirements?
+   
+   Ans :(i) Choose MongoDB if you need a flexible, schema-less database with high write throughput, easy horizontal scalability, and support for complex hierarchical data structures.
+       (ii) Choose MySQL if you need a robust relational database with strong ACID transaction support, complex query capabilities, and a mature ecosystem.
+
+4. What are collections and documents in a MongoDB database?
+   
+   Ans : (i) Documents:-
+              Definition: Records in a MongoDB collection, similar to rows in a relational database.
+              Format: Stored in BSON (Binary JSON) format.
+              Structure: Consist of field-value pairs, and can include nested documents and arrays. Each document has a unique _id field.
+        (ii) Collections:-
+              Definition: A grouping of MongoDB documents, similar to tables in a relational database.
+              Schema: Schema-less, allowing documents in the same collection to have different structures.
+              Naming: Must begin with a letter or underscore, can include letters, numbers, underscores, and dots.
+   Documents are the individual records, while collections are the containers for these records, offering flexible and scalable data management.
+
+5. What is BSON? What is the difference between BSON and JSON?
+   
+   Ans : BSON (Binary JSON) is a binary-encoded serialization format used to store documents and make remote procedure calls in MongoDB.
+        It stands for Binary JSON, and it extends JSON by providing additional data types, ordered fields, and efficient storage and traversal.
+        (i) BSON: Binary, supports more data types, efficient for storage and processing, maintains field order.
+       (ii) JSON: Text-based, human-readable, limited data types, widely used for web data interchange.
+
+6. What are MongoDB Compass and MongoDB Shell used for?
+   
+   Ans : (i) MongoDB Compass is a graphical user interface (GUI) for interacting with MongoDB.
+            It provides an intuitive and visual way to manage your MongoDB databases and collections. 
+           Here's what it is used for:- Data Visualization,Schema Exploration,Query Building,Aggregation Pipeline,Index Management,Performance Monitoring,CRUD Operations.
+         (ii)MongoDB Shell (mongosh) is a command-line interface (CLI) for interacting with MongoDB. 
+             It provides a powerful way to run MongoDB commands and queries directly from the terminal. 
+            Here's what it is used for:- Database Management,Running Queries,CRUD Operations,Script Automation,Administrative Tasks,Debugging and Troubleshooting.
+
+7. How to create collections in MongoDB?
+   
+   Ans : (I) Open MongoDB Shell
+        (II) Automatically: db.collectionName.insertOne({ ... })
+        (III) Explicitly: db.createCollection("collectionName")
+
+8. What is the difference between insertMany and insertOne?
+   
+   Ans :(i) Use insertOne inserts a single document into a collection.
+       (ii) Use insertMany inserts multiple documents into a collection in one operation.
+
+9. What is the difference between deleteOne and deleteMany?
+   
+   Ans : (i) Use deleteOne deletes a single document that matches the filter criteria.
+        (ii) Use deleteMany deletes all documents that match the filter criteria.
+
+10. How to read data in MongoDB? What is the difference between find and findOne?
+   
+   Ans : In MongoDB, reading data from a collection is typically done using the find and findOne methods.
+         (i) Use find Retrieves multiple documents from a collection that match the specified criteria.
+        (ii) Use findOne Retrieves a single document from a collection that matches the specified criteria.
+
+11. What is $set in MongoDB?
+   
+   Ans : In MongoDB, $set is an update operator that is used to set or update the value of a field within a document.
+    It is part of the update operations that allow you to modify existing documents in a collection.
+
+12. How to filter data using MongoDB?
+   
+   Ans : Filtering data in MongoDB is fundamental for retrieving specific documents from collections based on specified criteria.
+    By using query operators within the find() method, you can construct complex queries to meet your application's requirements, whether filtering by equality, range, logical conditions, or other criteria.
+    Understanding these concepts allows you to effectively query and retrieve data from MongoDB collections.

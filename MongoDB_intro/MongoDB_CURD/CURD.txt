@@ -1,0 +1,1592 @@
+ 1.Retrieve all the documents.
+ ---------------------------------
+
+Assignment-CURD> db.employee.find()
+[
+  {
+    _id: ObjectId('6696798283eb35526109edd0'),
+    first_name: 'Kimbra',
+    last_name: 'Ballentime',
+    gender: 'Female',
+    age: 33,
+    salary: 53090
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edd1'),
+    first_name: 'Alla',
+    last_name: 'Spehr',
+    gender: 'Female',
+    age: 57,
+    salary: 20307
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edd2'),
+    first_name: 'Alaric',
+    last_name: 'Hickin',
+    gender: 'Male',
+    age: 30,
+    salary: 94818
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edd3'),
+    first_name: 'Merell',
+    last_name: 'Muscat',
+    gender: 'Male',
+    age: 52,
+    salary: 25936
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edd4'),
+    first_name: 'Sidnee',
+    last_name: 'Edmans',
+    gender: 'Male',
+    age: 44,
+    salary: 26158
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edd5'),
+    first_name: 'Michel',
+    last_name: 'Sidebottom',
+    gender: 'Male',
+    age: 23,
+    salary: 87916
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edd6'),
+    first_name: 'Althea',
+    last_name: 'Keenleyside',
+    gender: 'Female',
+    age: 76,
+    salary: 39178
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edd7'),
+    first_name: 'Cart',
+    last_name: 'Gerhartz',
+    gender: 'Male',
+    age: 36,
+    salary: 82696
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edd8'),
+    first_name: 'Meredeth',
+    last_name: 'Groveham',
+    gender: 'Male',
+    age: 50,
+    salary: 62105
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edd9'),
+    first_name: 'Ludvig',
+    last_name: 'Dunsford',
+    gender: 'Male',
+    age: 68,
+    salary: 45382
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edda'),
+    first_name: 'Saundra',
+    last_name: 'Ebden',
+    gender: 'Male',
+    age: 30,
+    salary: 27305
+  },
+  {
+    _id: ObjectId('6696798283eb35526109eddb'),
+    first_name: 'Porty',
+    last_name: 'Stone',
+    gender: 'Male',
+    age: 27,
+    salary: 69830
+  },
+  {
+    _id: ObjectId('6696798283eb35526109eddc'),
+    first_name: 'Bennie',
+    last_name: 'Doerr',
+    gender: 'Female',
+    age: 18,
+    salary: 10487
+  },
+  {
+    _id: ObjectId('6696798283eb35526109eddd'),
+    first_name: 'Rosanne',
+    last_name: 'Shakespeare',
+    gender: 'Female',
+    age: 41,
+    salary: 44329
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edde'),
+    first_name: 'Annadiane',
+    last_name: 'Gronou',
+    gender: 'Female',
+    age: 43,
+    salary: 34159
+  },
+  {
+    _id: ObjectId('6696798283eb35526109eddf'),
+    first_name: 'Meriel',
+    last_name: 'Larmor',
+    gender: 'Female',
+    age: 55,
+    salary: 88554
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede0'),
+    first_name: 'Nikolaus',
+    last_name: 'Harder',
+    gender: 'Male',
+    age: 54,
+    salary: 30379
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede1'),
+    first_name: 'Andros',
+    last_name: 'Sartain',
+    gender: 'Male',
+    age: 30,
+    salary: 42717
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede2'),
+    first_name: 'Drucill',
+    last_name: 'Karlqvist',
+    gender: 'Genderfluid',
+    age: 21,
+    salary: 58847
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede3'),
+    first_name: 'Jaquenette',
+    last_name: 'Trowsdale',
+    gender: 'Female',
+    age: 73,
+    salary: 99332
+  }
+]
+Type "it" for more
+Assignment-CURD> it
+[
+  {
+    _id: ObjectId('6696798283eb35526109ede4'),
+    first_name: 'Junie',
+    last_name: 'Benge',
+    gender: 'Female',
+    age: 74,
+    salary: 34639
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede5'),
+    first_name: 'Mendel',
+    last_name: 'Harty',
+    gender: 'Male',
+    age: 74,
+    salary: 63676
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede6'),
+    first_name: 'Ricki',
+    last_name: 'Southwood',
+    gender: 'Female',
+    age: 79,
+    salary: 14521
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede7'),
+    first_name: 'Hugh',
+    last_name: 'Park',
+    gender: 'Male',
+    age: 66,
+    salary: 50869
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede8'),
+    first_name: 'Calv',
+    last_name: 'Rogier',
+    gender: 'Male',
+    age: 46,
+    salary: 59134
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede9'),
+    first_name: 'Timothea',
+    last_name: 'Spender',
+    gender: 'Female',
+    age: 37,
+    salary: 23351
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edea'),
+    first_name: 'Wendell',
+    last_name: 'Roscrigg',
+    gender: 'Male',
+    age: 61,
+    salary: 65686
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edeb'),
+    first_name: 'Quinlan',
+    last_name: 'Matfield',
+    gender: 'Male',
+    age: 43,
+    salary: 58546
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edec'),
+    first_name: 'Blithe',
+    last_name: 'Trainor',
+    gender: 'Female',
+    age: 64,
+    salary: 34795
+  },
+  {
+    _id: ObjectId('6696798283eb35526109eded'),
+    first_name: 'Ammamaria',
+    last_name: 'Eddowes',
+    gender: 'Female',
+    age: 18,
+    salary: 80153
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edee'),
+    first_name: 'Rey',
+    last_name: 'Amberger',
+    gender: 'Female',
+    age: 37,
+    salary: 85822
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edef'),
+    first_name: 'Liana',
+    last_name: 'Beviss',
+    gender: 'Female',
+    age: 28,
+    salary: 55849
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf0'),
+    first_name: 'Taber',
+    last_name: 'Di Carlo',
+    gender: 'Male',
+    age: 72,
+    salary: 23867
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf1'),
+    first_name: 'Kristal',
+    last_name: 'Jamme',
+    gender: 'Female',
+    age: 56,
+    salary: 26382
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf2'),
+    first_name: 'Hetti',
+    last_name: 'Gianuzzi',
+    gender: 'Female',
+    age: 52,
+    salary: 64330
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf3'),
+    first_name: 'Lionel',
+    last_name: 'Hiscoe',
+    gender: 'Male',
+    age: 48,
+    salary: 92350
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf4'),
+    first_name: 'Sheffie',
+    last_name: 'Cull',
+    gender: 'Male',
+    age: 41,
+    salary: 35967
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf5'),
+    first_name: 'Guenevere',
+    last_name: "O'Daly",
+    gender: 'Female',
+    age: 79,
+    salary: 56383
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf6'),
+    first_name: 'George',
+    last_name: 'Valenta',
+    gender: 'Male',
+    age: 42,
+    salary: 87627
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf7'),
+    first_name: 'Hazel',
+    last_name: 'Ragbourne',
+    gender: 'Male',
+    age: 33,
+    salary: 76259
+  }
+]
+Type "it" for more
+Assignment-CURD> it
+[
+  {
+    _id: ObjectId('6696798283eb35526109edf8'),
+    first_name: 'Cacilie',
+    last_name: 'Scully',
+    gender: 'Female',
+    age: 70,
+    salary: 16035
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf9'),
+    first_name: 'Shelden',
+    last_name: 'Parslow',
+    gender: 'Male',
+    age: 56,
+    salary: 77058
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edfa'),
+    first_name: 'Nathaniel',
+    last_name: 'Tebbit',
+    gender: 'Bigender',
+    age: 68,
+    salary: 82639
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edfb'),
+    first_name: 'Rodney',
+    last_name: 'Martina',
+    gender: 'Male',
+    age: 47,
+    salary: 29794
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edfc'),
+    first_name: 'Tab',
+    last_name: 'Owenson',
+    gender: 'Male',
+    age: 47,
+    salary: 15307
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edfd'),
+    first_name: 'Norton',
+    last_name: 'Date',
+    gender: 'Male',
+    age: 15,
+    salary: 88109
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edfe'),
+    first_name: 'Darius',
+    last_name: 'Ringe',
+    gender: 'Male',
+    age: 79,
+    salary: 49050
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edff'),
+    first_name: 'Gare',
+    last_name: 'Earwicker',
+    gender: 'Genderqueer',
+    age: 42,
+    salary: 36820
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee00'),
+    first_name: 'Ferrel',
+    last_name: 'Martensen',
+    gender: 'Male',
+    age: 42,
+    salary: 74457
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee01'),
+    first_name: 'Rafaela',
+    last_name: 'Velde',
+    gender: 'Female',
+    age: 39,
+    salary: 78172
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee02'),
+    first_name: 'Marillin',
+    last_name: 'Hairon',
+    gender: 'Female',
+    age: 66,
+    salary: 75676
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee03'),
+    first_name: 'Margarette',
+    last_name: 'Aherne',
+    gender: 'Female',
+    age: 74,
+    salary: 59790
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee04'),
+    first_name: 'Stormy',
+    last_name: 'Duckham',
+    gender: 'Female',
+    age: 36,
+    salary: 74420
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee05'),
+    first_name: 'Silva',
+    last_name: 'Bottleson',
+    gender: 'Female',
+    age: 59,
+    salary: 49288
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee06'),
+    first_name: 'Elden',
+    last_name: 'Stucke',
+    gender: 'Male',
+    age: 58,
+    salary: 69488
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee07'),
+    first_name: 'Doralynn',
+    last_name: 'Nusche',
+    gender: 'Female',
+    age: 47,
+    salary: 65028
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee08'),
+    first_name: 'Franklin',
+    last_name: 'Counter',
+    gender: 'Male',
+    age: 50,
+    salary: 38668
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee09'),
+    first_name: 'Cheryl',
+    last_name: 'Paddle',
+    gender: 'Female',
+    age: 34,
+    salary: 71285
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee0a'),
+    first_name: 'Francene',
+    last_name: 'McGougan',
+    gender: 'Female',
+    age: 69,
+    salary: 10144
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee0b'),
+    first_name: 'Evelyn',
+    last_name: 'Worshall',
+    gender: 'Male',
+    age: 16,
+    salary: 29295
+  }
+]
+Type "it" for more ---------> (`There 1000 Nos of data so we do next operation`)
+
+2 .Retrieve the first document.
+------------------------------------
+
+Assignment-CURD> db.employee.findOne()
+{
+  _id: ObjectId('6696798283eb35526109edd0'),
+  first_name: 'Kimbra',
+  last_name: 'Ballentime',
+  gender: 'Female',
+  age: 33,
+  salary: 53090
+}
+
+3. Update the age of the employee to 35 where the first_name is "Sidnee".
+--------------------------------------------------------------------------------
+
+Assignment-CURD> db.employee.updateOne({first_name:"Sidnee"},{$set:{age:35}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+4.Change the salary of "Meredeth Groveham" to 55000.
+---------------------------------------------------------
+
+Assignment-CURD> db.employee.updateOne({first_name:"Meredeth",last_name:"Groveham"},{$set:{salary:55000}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+5. Update the last name of "Nikolaus" to "Park".
+--------------------------------------------------
+
+Assignment-CURD> db.employee.updateOne({first_name:"Nikolaus"},{$set:{last_name:"Park"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+6.Update the salary of all employees to 35000 where the age is 37.
+---------------------------------------------------------------------
+
+Assignment-CURD> db.employee.updateMany({age:37},{$set:{salary:35000}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 14,
+  modifiedCount: 14,
+  upsertedCount: 0
+}
+
+7.Update the last name of all the employees to "Jamme" where the age is 28.
+-----------------------------------------------------------------------------
+
+Assignment-CURD> db.employee.updateMany({age:28},{$set:{last_name:"Jamme"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 14,
+  modifiedCount: 14,
+  upsertedCount: 0
+}
+
+8.For all employees named "Kimbra", add a new field middle_name with the value "Marie".
+-------------------------------------------------------------------------------------------
+
+Assignment-CURD> db.employee.updateMany({first_name:"Kimbra"},{$set:{middle_name:"Marie"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+9.Find all users who are 33 years old
+--------------------------------------------------
+
+Assignment-CURD> db.employee.find({age:33})
+[
+  {
+    _id: ObjectId('6696798283eb35526109edd0'),
+    first_name: 'Kimbra',
+    last_name: 'Ballentime',
+    gender: 'Female',
+    age: 33,
+    salary: 53090,
+    middle_name: 'Marie'
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf7'),
+    first_name: 'Hazel',
+    last_name: 'Ragbourne',
+    gender: 'Male',
+    age: 33,
+    salary: 76259
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee13'),
+    first_name: 'Jessalin',
+    last_name: 'Averall',
+    gender: 'Female',
+    age: 33,
+    salary: 91197
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee2b'),
+    first_name: 'Ode',
+    last_name: 'Terrazzo',
+    gender: 'Male',
+    age: 33,
+    salary: 11469
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee71'),
+    first_name: 'Corabelle',
+    last_name: 'Thaxter',
+    gender: 'Polygender',
+    age: 33,
+    salary: 48942
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee7e'),
+    first_name: 'Haskell',
+    last_name: 'Foulkes',
+    gender: 'Male',
+    age: 33,
+    salary: 12640
+  },
+  {
+    _id: ObjectId('6696798283eb35526109eeb4'),
+    first_name: 'Yurik',
+    last_name: 'Edbrooke',
+    gender: 'Male',
+    age: 33,
+    salary: 97461
+  },
+  {
+    _id: ObjectId('6696798283eb35526109eedd'),
+    first_name: 'Jodie',
+    last_name: 'De Benedictis',
+    gender: 'Agender',
+    age: 33,
+    salary: 99633
+  },
+  {
+    _id: ObjectId('6696798283eb35526109eee7'),
+    first_name: 'Donnell',
+    last_name: 'Normavill',
+    gender: 'Male',
+    age: 33,
+    salary: 65674
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ef2e'),
+    first_name: 'Kimble',
+    last_name: 'Ambrogioni',
+    gender: 'Male',
+    age: 33,
+    salary: 52357
+  },
+  {
+    _id: ObjectId('6696798283eb35526109f0e4'),
+    first_name: 'Aleksandr',
+    last_name: 'Lackey',
+    gender: 'Bigender',
+    age: 33,
+    salary: 82980
+  }
+]
+
+10.Retrieve documents for users with a salary greater than 50000.
+----------------------------------------------------------------------
+
+Assignment-CURD> db.employee.find({salary:{$gt:50000}})
+[
+  {
+    _id: ObjectId('6696798283eb35526109edd0'),
+    first_name: 'Kimbra',
+    last_name: 'Ballentime',
+    gender: 'Female',
+    age: 33,
+    salary: 53090,
+    middle_name: 'Marie'
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edd2'),
+    first_name: 'Alaric',
+    last_name: 'Hickin',
+    gender: 'Male',
+    age: 30,
+    salary: 94818
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edd5'),
+    first_name: 'Michel',
+    last_name: 'Sidebottom',
+    gender: 'Male',
+    age: 23,
+    salary: 87916
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edd7'),
+    first_name: 'Cart',
+    last_name: 'Gerhartz',
+    gender: 'Male',
+    age: 36,
+    salary: 82696
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edd8'),
+    first_name: 'Meredeth',
+    last_name: 'Groveham',
+    gender: 'Male',
+    age: 50,
+    salary: 55000
+  },
+  {
+    _id: ObjectId('6696798283eb35526109eddb'),
+    first_name: 'Porty',
+    last_name: 'Stone',
+    gender: 'Male',
+    age: 27,
+    salary: 69830
+  },
+  {
+    _id: ObjectId('6696798283eb35526109eddf'),
+    first_name: 'Meriel',
+    last_name: 'Larmor',
+    gender: 'Female',
+    age: 55,
+    salary: 88554
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede2'),
+    first_name: 'Drucill',
+    last_name: 'Karlqvist',
+    gender: 'Genderfluid',
+    age: 21,
+    salary: 58847
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede3'),
+    first_name: 'Jaquenette',
+    last_name: 'Trowsdale',
+    gender: 'Female',
+    age: 73,
+    salary: 99332
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede5'),
+    first_name: 'Mendel',
+    last_name: 'Harty',
+    gender: 'Male',
+    age: 74,
+    salary: 63676
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede7'),
+    first_name: 'Hugh',
+    last_name: 'Park',
+    gender: 'Male',
+    age: 66,
+    salary: 50869
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede8'),
+    first_name: 'Calv',
+    last_name: 'Rogier',
+    gender: 'Male',
+    age: 46,
+    salary: 59134
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edea'),
+    first_name: 'Wendell',
+    last_name: 'Roscrigg',
+    gender: 'Male',
+    age: 61,
+    salary: 65686
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edeb'),
+    first_name: 'Quinlan',
+    last_name: 'Matfield',
+    gender: 'Male',
+    age: 43,
+    salary: 58546
+  },
+  {
+    _id: ObjectId('6696798283eb35526109eded'),
+    first_name: 'Ammamaria',
+    last_name: 'Eddowes',
+    gender: 'Female',
+    age: 18,
+    salary: 80153
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edef'),
+    first_name: 'Liana',
+    last_name: 'Jamme',
+    gender: 'Female',
+    age: 28,
+    salary: 55849
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf2'),
+    first_name: 'Hetti',
+    last_name: 'Gianuzzi',
+    gender: 'Female',
+    age: 52,
+    salary: 64330
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf3'),
+    first_name: 'Lionel',
+    last_name: 'Hiscoe',
+    gender: 'Male',
+    age: 48,
+    salary: 92350
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf5'),
+    first_name: 'Guenevere',
+    last_name: "O'Daly",
+    gender: 'Female',
+    age: 79,
+    salary: 56383
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf6'),
+    first_name: 'George',
+    last_name: 'Valenta',
+    gender: 'Male',
+    age: 42,
+    salary: 87627
+  }
+]
+Type "it" for more
+Assignment-CURD> it
+[
+  {
+    _id: ObjectId('6696798283eb35526109edf7'),
+    first_name: 'Hazel',
+    last_name: 'Ragbourne',
+    gender: 'Male',
+    age: 33,
+    salary: 76259
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf9'),
+    first_name: 'Shelden',
+    last_name: 'Parslow',
+    gender: 'Male',
+    age: 56,
+    salary: 77058
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edfa'),
+    first_name: 'Nathaniel',
+    last_name: 'Tebbit',
+    gender: 'Bigender',
+    age: 68,
+    salary: 82639
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edfd'),
+    first_name: 'Norton',
+    last_name: 'Date',
+    gender: 'Male',
+    age: 15,
+    salary: 88109
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee00'),
+    first_name: 'Ferrel',
+    last_name: 'Martensen',
+    gender: 'Male',
+    age: 42,
+    salary: 74457
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee01'),
+    first_name: 'Rafaela',
+    last_name: 'Velde',
+    gender: 'Female',
+    age: 39,
+    salary: 78172
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee02'),
+    first_name: 'Marillin',
+    last_name: 'Hairon',
+    gender: 'Female',
+    age: 66,
+    salary: 75676
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee03'),
+    first_name: 'Margarette',
+    last_name: 'Aherne',
+    gender: 'Female',
+    age: 74,
+    salary: 59790
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee04'),
+    first_name: 'Stormy',
+    last_name: 'Duckham',
+    gender: 'Female',
+    age: 36,
+    salary: 74420
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee06'),
+    first_name: 'Elden',
+    last_name: 'Stucke',
+    gender: 'Male',
+    age: 58,
+    salary: 69488
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee07'),
+    first_name: 'Doralynn',
+    last_name: 'Nusche',
+    gender: 'Female',
+    age: 47,
+    salary: 65028
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee09'),
+    first_name: 'Cheryl',
+    last_name: 'Paddle',
+    gender: 'Female',
+    age: 34,
+    salary: 71285
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee0c'),
+    first_name: 'Cassie',
+    last_name: 'Anthoine',
+    gender: 'Female',
+    age: 15,
+    salary: 50761
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee0e'),
+    first_name: 'Lexi',
+    last_name: 'Beldom',
+    gender: 'Female',
+    age: 20,
+    salary: 88239
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee0f'),
+    first_name: 'Packston',
+    last_name: 'Leisman',
+    gender: 'Male',
+    age: 57,
+    salary: 76952
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee13'),
+    first_name: 'Jessalin',
+    last_name: 'Averall',
+    gender: 'Female',
+    age: 33,
+    salary: 91197
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee15'),
+    first_name: 'Lani',
+    last_name: 'Archer',
+    gender: 'Female',
+    age: 27,
+    salary: 96688
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee16'),
+    first_name: 'Ruthe',
+    last_name: 'Aucoate',
+    gender: 'Female',
+    age: 52,
+    salary: 97772
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee17'),
+    first_name: 'Marietta',
+    last_name: 'Clifton',
+    gender: 'Male',
+    age: 58,
+    salary: 75885
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee19'),
+    first_name: 'Brig',
+    last_name: 'Braam',
+    gender: 'Male',
+    age: 54,
+    salary: 81152
+  }
+]
+Type "it" for more
+Assignment-CURD> it
+[
+  {
+    _id: ObjectId('6696798283eb35526109ee1a'),
+    first_name: 'Douglass',
+    last_name: 'Varty',
+    gender: 'Male',
+    age: 26,
+    salary: 58176
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee1b'),
+    first_name: 'Batsheva',
+    last_name: 'Iskov',
+    gender: 'Female',
+    age: 75,
+    salary: 56954
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee1f'),
+    first_name: 'Ian',
+    last_name: 'Toquet',
+    gender: 'Male',
+    age: 34,
+    salary: 92748
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee22'),
+    first_name: 'Wiley',
+    last_name: 'McDell',
+    gender: 'Male',
+    age: 20,
+    salary: 62420
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee24'),
+    first_name: 'Shayla',
+    last_name: 'Redgrove',
+    gender: 'Female',
+    age: 31,
+    salary: 89644
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee25'),
+    first_name: 'Glenda',
+    last_name: 'Sandeman',
+    gender: 'Female',
+    age: 60,
+    salary: 87466
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee26'),
+    first_name: 'Pavia',
+    last_name: 'Grigaut',
+    gender: 'Female',
+    age: 39,
+    salary: 59907
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee28'),
+    first_name: 'Stevana',
+    last_name: 'Foxhall',
+    gender: 'Female',
+    age: 58,
+    salary: 63453
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee2a'),
+    first_name: 'Josh',
+    last_name: 'Perago',
+    gender: 'Male',
+    age: 47,
+    salary: 75194
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee2c'),
+    first_name: 'Gabriello',
+    last_name: 'Yewdell',
+    gender: 'Male',
+    age: 65,
+    salary: 85296
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee2d'),
+    first_name: 'Ximenez',
+    last_name: 'Rable',
+    gender: 'Male',
+    age: 43,
+    salary: 59338
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee2f'),
+    first_name: 'Egbert',
+    last_name: 'Iddens',
+    gender: 'Male',
+    age: 50,
+    salary: 50754
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee33'),
+    first_name: 'Meta',
+    last_name: 'Archard',
+    gender: 'Female',
+    age: 35,
+    salary: 67244
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee34'),
+    first_name: 'Dannie',
+    last_name: 'Cavalier',
+    gender: 'Female',
+    age: 51,
+    salary: 99897
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee35'),
+    first_name: 'Langsdon',
+    last_name: 'Chastelain',
+    gender: 'Male',
+    age: 42,
+    salary: 88324
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee37'),
+    first_name: 'Joey',
+    last_name: 'Jamme',
+    gender: 'Male',
+    age: 28,
+    salary: 92762
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee39'),
+    first_name: 'Malcolm',
+    last_name: 'Leeburne',
+    gender: 'Male',
+    age: 65,
+    salary: 84934
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee3a'),
+    first_name: 'Robinet',
+    last_name: 'Jamme',
+    gender: 'Male',
+    age: 28,
+    salary: 57645
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee3b'),
+    first_name: 'Dame',
+    last_name: 'Dodd',
+    gender: 'Male',
+    age: 25,
+    salary: 56318
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee3c'),
+    first_name: 'Hertha',
+    last_name: 'Galvan',
+    gender: 'Female',
+    age: 23,
+    salary: 97382
+  }
+]
+Type "it" for more
+
+11. Find all the users where the gender is Female and age is 79.
+--------------------------------------------------------------
+
+Assignment-CURD> db.employee.find({gender:"Female",age:79})
+[
+  {
+    _id: ObjectId('6696798283eb35526109ede6'),
+    first_name: 'Ricki',
+    last_name: 'Southwood',
+    gender: 'Female',
+    age: 79,
+    salary: 14521
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf5'),
+    first_name: 'Guenevere',
+    last_name: "O'Daly",
+    gender: 'Female',
+    age: 79,
+    salary: 56383
+  },
+  {
+    _id: ObjectId('6696798283eb35526109eed0'),
+    first_name: 'Petronilla',
+    last_name: 'Summerlee',
+    gender: 'Female',
+    age: 79,
+    salary: 46254
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ef6d'),
+    first_name: 'Mel',
+    last_name: 'Joannidi',
+    gender: 'Female',
+    age: 79,
+    salary: 10125
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ef95'),
+    first_name: 'Lilian',
+    last_name: 'Rockwill',
+    gender: 'Female',
+    age: 79,
+    salary: 91105
+  },
+  {
+    _id: ObjectId('6696798283eb35526109f072'),
+    first_name: 'Veronica',
+    last_name: 'Dod',
+    gender: 'Female',
+    age: 79,
+    salary: 29397
+  },
+  {
+    _id: ObjectId('6696798283eb35526109f0c9'),
+    first_name: 'Brynna',
+    last_name: 'Spurling',
+    gender: 'Female',
+    age: 79,
+    salary: 22493
+  },
+  {
+    _id: ObjectId('6696798283eb35526109f104'),
+    first_name: 'Rachele',
+    last_name: 'Fardell',
+    gender: 'Female',
+    age: 79,
+    salary: 70882
+  }
+]
+
+12. Find all the employees where the first_name is "George" and gender is Male.
+-----------------------------------------------------------------------------------
+
+Assignment-CURD> db.employee.find({first_name:"George",gender:"Male"})
+[
+  {
+    _id: ObjectId('6696798283eb35526109edf6'),
+    first_name: 'George',
+    last_name: 'Valenta',
+    gender: 'Male',
+    age: 42,
+    salary: 87627
+  }
+]
+
+13. Find all users whose salary is less than or equal to 50000.
+-------------------------------------------------------------------
+
+Assignment-CURD> db.employee.find({salary:{$lte:50000}})
+[
+  {
+    _id: ObjectId('6696798283eb35526109edd1'),
+    first_name: 'Alla',
+    last_name: 'Spehr',
+    gender: 'Female',
+    age: 57,
+    salary: 20307
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edd3'),
+    first_name: 'Merell',
+    last_name: 'Muscat',
+    gender: 'Male',
+    age: 52,
+    salary: 25936
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edd4'),
+    first_name: 'Sidnee',
+    last_name: 'Edmans',
+    gender: 'Male',
+    age: 35,
+    salary: 26158
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edd6'),
+    first_name: 'Althea',
+    last_name: 'Keenleyside',
+    gender: 'Female',
+    age: 76,
+    salary: 39178
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edd9'),
+    first_name: 'Ludvig',
+    last_name: 'Dunsford',
+    gender: 'Male',
+    age: 68,
+    salary: 45382
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edda'),
+    first_name: 'Saundra',
+    last_name: 'Ebden',
+    gender: 'Male',
+    age: 30,
+    salary: 27305
+  },
+  {
+    _id: ObjectId('6696798283eb35526109eddc'),
+    first_name: 'Bennie',
+    last_name: 'Doerr',
+    gender: 'Female',
+    age: 18,
+    salary: 10487
+  },
+  {
+    _id: ObjectId('6696798283eb35526109eddd'),
+    first_name: 'Rosanne',
+    last_name: 'Shakespeare',
+    gender: 'Female',
+    age: 41,
+    salary: 44329
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edde'),
+    first_name: 'Annadiane',
+    last_name: 'Gronou',
+    gender: 'Female',
+    age: 43,
+    salary: 34159
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede0'),
+    first_name: 'Nikolaus',
+    last_name: 'Park',
+    gender: 'Male',
+    age: 54,
+    salary: 30379
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede1'),
+    first_name: 'Andros',
+    last_name: 'Sartain',
+    gender: 'Male',
+    age: 30,
+    salary: 42717
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede4'),
+    first_name: 'Junie',
+    last_name: 'Benge',
+    gender: 'Female',
+    age: 74,
+    salary: 34639
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede6'),
+    first_name: 'Ricki',
+    last_name: 'Southwood',
+    gender: 'Female',
+    age: 79,
+    salary: 14521
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ede9'),
+    first_name: 'Timothea',
+    last_name: 'Spender',
+    gender: 'Female',
+    age: 37,
+    salary: 35000
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edec'),
+    first_name: 'Blithe',
+    last_name: 'Trainor',
+    gender: 'Female',
+    age: 64,
+    salary: 34795
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edee'),
+    first_name: 'Rey',
+    last_name: 'Amberger',
+    gender: 'Female',
+    age: 37,
+    salary: 35000
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf0'),
+    first_name: 'Taber',
+    last_name: 'Di Carlo',
+    gender: 'Male',
+    age: 72,
+    salary: 23867
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf1'),
+    first_name: 'Kristal',
+    last_name: 'Jamme',
+    gender: 'Female',
+    age: 56,
+    salary: 26382
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf4'),
+    first_name: 'Sheffie',
+    last_name: 'Cull',
+    gender: 'Male',
+    age: 41,
+    salary: 35967
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edf8'),
+    first_name: 'Cacilie',
+    last_name: 'Scully',
+    gender: 'Female',
+    age: 70,
+    salary: 16035
+  }
+]
+Type "it" for more
+Assignment-CURD> it
+[
+  {
+    _id: ObjectId('6696798283eb35526109edfb'),
+    first_name: 'Rodney',
+    last_name: 'Martina',
+    gender: 'Male',
+    age: 47,
+    salary: 29794
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edfc'),
+    first_name: 'Tab',
+    last_name: 'Owenson',
+    gender: 'Male',
+    age: 47,
+    salary: 15307
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edfe'),
+    first_name: 'Darius',
+    last_name: 'Ringe',
+    gender: 'Male',
+    age: 79,
+    salary: 49050
+  },
+  {
+    _id: ObjectId('6696798283eb35526109edff'),
+    first_name: 'Gare',
+    last_name: 'Earwicker',
+    gender: 'Genderqueer',
+    age: 42,
+    salary: 36820
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee05'),
+    first_name: 'Silva',
+    last_name: 'Bottleson',
+    gender: 'Female',
+    age: 59,
+    salary: 49288
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee08'),
+    first_name: 'Franklin',
+    last_name: 'Counter',
+    gender: 'Male',
+    age: 50,
+    salary: 38668
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee0a'),
+    first_name: 'Francene',
+    last_name: 'McGougan',
+    gender: 'Female',
+    age: 69,
+    salary: 10144
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee0b'),
+    first_name: 'Evelyn',
+    last_name: 'Worshall',
+    gender: 'Male',
+    age: 16,
+    salary: 29295
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee0d'),
+    first_name: 'Onofredo',
+    last_name: 'Yare',
+    gender: 'Male',
+    age: 54,
+    salary: 41683
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee10'),
+    first_name: 'Trixi',
+    last_name: 'Bowld',
+    gender: 'Female',
+    age: 18,
+    salary: 43464
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee11'),
+    first_name: 'Ozzy',
+    last_name: 'Ginnane',
+    gender: 'Male',
+    age: 21,
+    salary: 19716
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee12'),
+    first_name: 'Gabbie',
+    last_name: 'Berrill',
+    gender: 'Male',
+    age: 50,
+    salary: 19935
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee14'),
+    first_name: 'Pandora',
+    last_name: 'Renney',
+    gender: 'Female',
+    age: 64,
+    salary: 34676
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee18'),
+    first_name: 'Crosby',
+    last_name: 'Couser',
+    gender: 'Male',
+    age: 37,
+    salary: 35000
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee1c'),
+    first_name: 'Ferdinanda',
+    last_name: 'Oxbe',
+    gender: 'Female',
+    age: 66,
+    salary: 19042
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee1d'),
+    first_name: 'Taryn',
+    last_name: 'Strase',
+    gender: 'Female',
+    age: 39,
+    salary: 13070
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee1e'),
+    first_name: 'Halsy',
+    last_name: 'Hindenburg',
+    gender: 'Male',
+    age: 69,
+    salary: 11876
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee20'),
+    first_name: 'Christen',
+    last_name: 'Placidi',
+    gender: 'Female',
+    age: 55,
+    salary: 49330
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee21'),
+    first_name: 'Wilek',
+    last_name: 'Paten',
+    gender: 'Male',
+    age: 15,
+    salary: 12729
+  },
+  {
+    _id: ObjectId('6696798283eb35526109ee23'),
+    first_name: 'Welby',
+    last_name: 'Longhorn',
+    gender: 'Male',
+    age: 78,
+    salary: 37493
+  }
+]
+Type "it" for more
+Assignment-CURD>
