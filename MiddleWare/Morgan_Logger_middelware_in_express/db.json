@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 776,
+      "name": "ramesh",
+      "age": 32,
+      "city": "cuttack"
+    },
+    {
+      "id": 953,
+      "name": "rakesh",
+      "age": 22,
+      "city": "BBSR"
+    },
+    {
+      "id": 365,
+      "name": "lucky",
+      "age": 22,
+      "city": "CDR"
+    }
+  ]
+}
