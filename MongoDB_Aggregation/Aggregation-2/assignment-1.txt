@@ -1,0 +1,147 @@
+1. Write Mongo query to retrieve the unique citye's from the buyers address as "\_id".
+--------------------------------------------------------------------------------------
+   Aggregation_1> db.buyers.aggregate([{$group:{_id:"$address.city"}}])
+   [ { _id: 'New York' }, { _id: 'Los Angeles' } ]
+   Aggregation_1>
+
+------------------------------------------------------------------------------------------------------------
+
+
+2. Write Mongo query to retrieve the unique zip from the buyers address as "\_id".
+---------------------------------------------------------------------------------------------------------
+   Aggregation_1> db.buyers.aggregate([{$group:{_id:"$address.zip"}}])
+   [ { _id: '10001' }, { _id: '90001' } ]
+   Aggregation_1>
+
+------------------------------------------------------------------------------------------------------------------
+
+3. Write Mongo query to retrieve the unique order_id in ascending order from the order_details.
+------------------------------------------------------------------------------------------------------------------
+   Aggregation_1> db.order_details.aggregate([{$group:{_id:"$order_id"}},{$sort:{_id:1}}])
+   [ { _id: 1 }, { _id: 2 } ]
+   Aggregation_1>
+
+-----------------------------------------------------------------------------------------------------------------------
+
+4. Write Mongo query to retrieve the unique customer_id from the orders.
+-------------------------------------------------------------------------------------------
+   Aggregation_1> db.orders.aggregate([{$group:{_id:"$customer_id"}}])
+   [ { _id: 2 }, { _id: 1 } ]
+   Aggregation_1>
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+5. Write Mongo query to retrieve the unique paymentMethod's from the payments collection as "\_id".
+-----------------------------------------------------------------------------------------------------------
+   Aggregation_1> db.payments.aggregate([{$group:{_id:"$paymentMethod"}}])
+   [ { _id: 'UPI' }, { _id: 'Debit Card' } ]
+   Aggregation_1>
+
+--------------------------------------------------------------------------------------------------------------
+
+6. Write Mongo query to retrieve the unique paymentstatus's from the payments collection as "\_id".
+------------------------------------------------------------------------------------------------------
+   Aggregation_1> db.payments.aggregate([{$group:{_id:"$paymentstatus"}}])
+   [ { _id: 'success' }, { _id: 'pending' } ]
+   Aggregation_1>
+
+--------------------------------------------------------------------------------------------------------
+
+7. Write Mongo query to retrieve the unique category_id product from products.
+-----------------------------------------------------------------------------------------------------
+   Aggregation_1> db.products.aggregate([{$group:{_id:"$category_id"}}])
+   [ { _id: 1 } ]
+   Aggregation_1>
+
+--------------------------------------------------------------------------------------------------------
+
+8. Write a MongoDB query to aggregate the total sales per customer and list the top 5 customers by total sales amount. Include the customer's ID and their total sales in the output.
+-------------------------------------------------------------------------------------------------------
+   Aggregation_1> db.orders.aggregate([{$lookup:{from:"order_details",localField:"_id",foreignField:"order_id",as:"orderDetails"}},{$unwind:"$orderDetails"},{$group:{_id:"$customer_id",totalSales:{$sum:"$orderDetails.price"}}},{$sort:{totalSales:-1}},{$limit:5}])
+   [ { _id: 1, totalSales: 999.99 }, { _id: 2, totalSales: 799.99 } ]
+   Aggregation_1>
+
+     Note:-
+           * Here we use $lookup so it's take (i) "from"-which collection/array data we want to compare with our given collection
+                                              (ii)"localField": which comman field/value we want to cheack/compare from our collection
+                                              (iii)"foreignField":which comman field/value (simillar to "localField" value) is present in our  collection/array which we fill in "from" field
+                                              (iv)"as": name of a new field which came after comparing in array form
+           
+          * Here we use $unwind for breaking array data make it spearate data i explain in example let's see:-
+                                        ex:-
+                                        it's the data we got after using $lookup
+                                          let order=[ {
+                                                        id:1
+                                                        name:"rohit"
+                                                        order_details:[
+                                                             {product:"mango",price:20}
+                                                             {product:"pen",price:5}
+                                                       ]
+                                                     },
+                                                     {
+                                                        id:2
+                                                        name:"lucky"
+                                                        order_details:[
+                                                           {product:"book",price:100}
+                                                       ]
+                                                     }
+                                          ]
+                                      * if we use $unwind:{"$order_details"}
+                                      * Then out put wii be:-
+                                                          [
+                                                            {
+                                                              id:1
+                                                              name:"rohit"
+                                                              order_details:[
+                                                                  {product:"mango",price:20}
+                                                              ]
+                                                             },
+                                                             {
+                                                              id:1
+                                                              name:"rohit"
+                                                              order_details:[
+                                                                {product:"pen",price:5}
+                                                              ]
+                                                             },
+                                                              {
+                                                               id:2
+                                                               name:"lucky"
+                                                               order_details:[
+                                                                   {product:"book",price:100}
+                                                              ]
+                                                             }
+                                                            ]
+
+----------------------------------------------------------------------------------------------------------------------
+
+9. Aggregate the orders to count how many there are per status and show only the first 3 statuses based on the aggregated count.
+---------------------------------------------------------------------------------------------------------
+   Aggregation_1> db.orders.aggregate([{$group:{_id:"$status",count:{$sum:1}}},{$sort:{count:-1}},{$limit:3}])
+   [ { _id: 'pending', count: 1 }, { _id: 'shipped', count: 1 } ]
+   Aggregation_1>
+
+-------------------------------------------------------------------------------------------------------------
+
+10. Write a MongoDB query to calculate the total amount of payments that have a success status.
+--------------------------------------------------------------------------------------------------
+   Aggregation_1> db.payments.aggregate([{$match:{paymentstatus:"success"}},{$group:{_id:null,totalAmount:{$sum:"$amount"}}},{$project:{_id:0}}])
+   [ { totalAmount: 50.25 } ]
+   Aggregation_1>
+
+---------------------------------------------------------------------------------------------------------
+
+11. Aggregate suppliers to find the one with the highest total quantity of products supplied, filtering to only include suppliers with a total product quantity greater than 100.
+---------------------------------------------------------------------------------------------------------
+   Aggregation_1> db.products.aggregate([{$group:{_id:"$supplier_id",totalquantity:{$sum:"$quantity"}}},{$match:{totalquantity:{$gt:100}}},{$sort:{totalquantity:-1}},{$limit:1}])
+
+   Aggregation_1>
+
+------------------------------------------------------------------------------------------------------------
+
+12. Write a MongoDB query to find the top-selling product category based on total sales revenue.
+--------------------------------------------------------------------------------------------------------
+   Aggregation_1> db.order_details.aggregate([{$lookup:{from:"products",localField:"product_id",foreignField:"_id",as:"product"}},{$unwind:"$product"},{$group:{_id:"$product.category_id",totalRevenue:{$sum:"$price"}}},{$sort:{totalRevenue:-1}},{$limit:1}])
+   [ { _id: 1, totalRevenue: 1799.98 } ]
+   Aggregation_1>
+
+----------------------------------------------------------------------------------------------------------

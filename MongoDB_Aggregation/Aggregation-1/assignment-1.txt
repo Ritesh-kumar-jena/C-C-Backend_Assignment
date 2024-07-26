@@ -1,0 +1,191 @@
+1. Write Mongo query to retrieve documents from the products where supplier_id is 3 .
+--------------------------------------------------------------------------------------
+    Aggregation_1> db.products.aggregate([{$match:{supplier_id:3}}])
+
+    Aggregation_1>
+
+------------------------------------------------------------------------------------------------------------
+
+
+2. Write Mongo query to retrieve the documents from the orders collection with "status": "shipped" .
+---------------------------------------------------------------------------------------------------------
+   Aggregation_1> db.orders.aggregate([{$match:{"status": "shipped"}}])
+   [
+     {
+       _id: 1,
+       customer_id: 1,
+       order_date: '2022-03-01',
+       ship_date: '2022-03-05',
+       status: 'shipped',
+       total: 50.25
+     }
+   ]
+   Aggregation_1>
+
+------------------------------------------------------------------------------------------------------------------
+
+3. Write Mongo query to find buyers who from state CA ?
+------------------------------------------------------------------------------------------------------------------
+   Aggregation_1> db.buyers.aggregate([{$match:{"address.state":"CA"}}])
+   [
+     {
+       _id: 2,
+       name: 'Jane Doe',
+       email: 'jane@gmail.com',
+       address: {
+         street: '456 Oak St',
+         city: 'Los Angeles',
+         state: 'CA',
+         zip: '90001'
+       }
+     }
+   ]
+   Aggregation_1>
+
+-----------------------------------------------------------------------------------------------------------------------
+
+4. Write Mongo query to retrieve the amount,paymentstatus and paymentMethod from payments.
+-------------------------------------------------------------------------------------------
+   Aggregation_1> db.payments.aggregate([{$project:{"amount":1 ,"paymentstatus":1 , "paymentMethod":1 }}])
+   [
+     {
+       _id: 1,
+       amount: 50.25,
+       paymentMethod: 'UPI',
+       paymentstatus: 'success'
+     },
+     {
+       _id: 2,
+       amount: 1120,
+       paymentMethod: 'Debit Card',
+       paymentstatus: 'pending'
+     }
+   ]
+   Aggregation_1> db.payments.aggregate([{$project:{"amount":1 ,"paymentstatus":1 , "paymentMethod":1,"_id":0 }}])
+   [
+     { amount: 50.25, paymentMethod: 'UPI', paymentstatus: 'success' },
+     {
+       amount: 1120,
+       paymentMethod: 'Debit Card',
+       paymentstatus: 'pending'
+     }
+   ]
+   Aggregation_1>
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+5. Write Mongo query to retrieve documents from the orders with out _id.
+-----------------------------------------------------------------------------------------------------------
+   Aggregation_1> db.orders.aggregate([{$project:{"_id":0 }}])
+   [
+     {
+       customer_id: 1,
+       order_date: '2022-03-01',
+       ship_date: '2022-03-05',
+       status: 'shipped',
+       total: 50.25
+     },
+     {
+       customer_id: 2,
+       order_date: '2022-04-01',
+       ship_date: '2022-04-06',
+       status: 'pending',
+       total: 1120
+     }
+   ]
+   Aggregation_1>
+
+--------------------------------------------------------------------------------------------------------------
+
+6.Write Mongo query to retrieve name,price from the products .
+------------------------------------------------------------------------------------------------------
+   Aggregation_1> db.products.aggregate([{$project:{"_id":0,"name":1,"price":1 }}])
+   [
+     { name: 'iPhone 13', price: 999.99 },
+     { name: 'Samsung Galaxy S21', price: 799.99 }
+   ]
+   Aggregation_1>
+
+--------------------------------------------------------------------------------------------------------
+
+7. Write Mongo query to find buyers city and zip code ?
+-----------------------------------------------------------------------------------------------------
+   Aggregation_1> db.buyers.aggregate([{$project:{"_id":0,"address.city":1,"address.zip":1 }}])
+   [
+     { address: { city: 'New York', zip: '10001' } },
+     { address: { city: 'Los Angeles', zip: '90001' } }
+   ]
+   Aggregation_1>
+
+--------------------------------------------------------------------------------------------------------
+
+8. Write Mongo query to find buyers name,email, city and zip code ?
+-------------------------------------------------------------------------------------------------------
+   Aggregation_1> db.buyers.aggregate([{$project:{"_id":0,"name":1,"email":1,"address.city":1,"address.zip":1 }}])
+   [
+     {
+       name: 'John Smith',
+       email: 'john@hotmail.com',
+       address: { city: 'New York', zip: '10001' }
+     },
+     {
+       name: 'Jane Doe',
+       email: 'jane@gmail.com',
+       address: { city: 'Los Angeles', zip: '90001' }
+     }
+   ]
+   Aggregation_1>
+
+----------------------------------------------------------------------------------------------------------------------
+
+9. Write Mongo query to find suppliers name and phone ?
+---------------------------------------------------------------------------------------------------------
+   Aggregation_1> db.suppliers.aggregate([{$project:{"_id":0,"name":1,"phone":1 }}])
+   [
+     { name: 'Apple', phone: '1-800-275-2273' },
+     { name: 'Samsung', phone: '+82-2-2053-3000' }
+   ]
+   Aggregation_1>
+
+-------------------------------------------------------------------------------------------------------------
+
+10. Write Mongo query to find buyers name,email, city and zip code ?
+--------------------------------------------------------------------------------------------------
+   Aggregation_1> db.buyers.aggregate([{$project:{"_id":0,"name":1,"email":1,"address.city":1,"address.zip":1 }}])
+   [
+     {
+       name: 'John Smith',
+       email: 'john@hotmail.com',
+       address: { city: 'New York', zip: '10001' }
+     },
+     {
+       name: 'Jane Doe',
+       email: 'jane@gmail.com',
+       address: { city: 'Los Angeles', zip: '90001' }
+     }
+   ]
+   Aggregation_1>
+
+---------------------------------------------------------------------------------------------------------
+
+11. Write Mongo query to find buyers city and zip code ?
+---------------------------------------------------------------------------------------------------------
+   Aggregation_1> db.buyers.aggregate([{$project:{"_id":0,"address.city":1,"address.zip":1 }}])
+   [
+     { address: { city: 'New York', zip: '10001' } },
+     { address: { city: 'Los Angeles', zip: '90001' } }
+   ]
+   Aggregation_1>
+
+------------------------------------------------------------------------------------------------------------
+
+12. Write Mongo query to retrieve name,price from the products .
+--------------------------------------------------------------------------------------------------------
+   Aggregation_1> db.products.aggregate([{$project:{"_id":0,"name":1,"price":1 }}])
+   [
+     { name: 'iPhone 13', price: 999.99 },
+     { name: 'Samsung Galaxy S21', price: 799.99 }
+   ]
+   Aggregation_1>
+
+----------------------------------------------------------------------------------------------------------
