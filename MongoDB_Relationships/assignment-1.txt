@@ -1,0 +1,411 @@
+1. Find the names of employees who work in the "Finance" department and have made sales on or after "2023-09-16.
+--------------------------------------------------------------------------------------
+   Aggregation_2> db.employees.aggregate([{$lookup:{from:"departments",localField:"department_id",foreignField:"_id",as:"department"}},{$unwind:"$department"},{$match:{"department.name":"Finance"}},{$lookup:{from:"sales",localField:"_id",foreignField:"employee_id",as:"employee"}},{$unwind:"$employee"},{$match:{"employee.sale_date":{$gte:"2023-09-16"}}},{$project:{name:1,_id:0}}])
+   [
+     { name: 'Jane Smith' },
+     { name: 'David Lee' },
+     { name: 'Emily Davis' }
+   ]
+   Aggregation_2>
+
+------------------------------------------------------------------------------------------------------------
+
+
+2. Find the total sales count and total sales amount for each employee who has made a sale, and sort the results by total sales amount in descending order.
+---------------------------------------------------------------------------------------------------------
+    Aggregation_2> db.sales.aggregate([{$group:{_id:"$employee_id",totalSaleAmount:{$sum:"$amount"},totalSaleCount:{$sum:1}}},{$lookup:{from:"employees",localField:"_id",foreignField:"_id",as:"employee"}},{$unwind:"$employee"},{$project:{_id:0,name:"$employee.name",totalSaleAmount:1,totalSaleCount:1}},{$sort:{totalSaleAmount:-1}}])
+    [
+    { totalSaleAmount: 8200, totalSaleCount: 1, name: 'David Lee' },
+    { totalSaleAmount: 7500, totalSaleCount: 1, name: 'Jane Smith' },
+    { totalSaleAmount: 7100, totalSaleCount: 1, name: 'Sarah Wilson' },
+    { totalSaleAmount: 6800, totalSaleCount: 1, name: 'Michael Taylor' },
+    {
+        totalSaleAmount: 6700,
+        totalSaleCount: 1,
+        name: 'Olivia Hernandez'
+    },
+    { totalSaleAmount: 6000, totalSaleCount: 1, name: 'Bob Johnson' },
+    { totalSaleAmount: 6000, totalSaleCount: 1, name: 'Daniel Anderson' },
+    { totalSaleAmount: 5400, totalSaleCount: 1, name: 'Emily Davis' },
+    { totalSaleAmount: 5000, totalSaleCount: 1, name: 'John Doe' },
+    { totalSaleAmount: 4500, totalSaleCount: 1, name: 'Mary Brown' }
+    ]
+    Aggregation_2>
+
+------------------------------------------------------------------------------------------------------------------
+
+3. Retrieve a list of departments with more than 10 employees
+------------------------------------------------------------------------------------------------------------------
+    Aggregation_2> db.employees.aggregate([{$group:{_id:"$department_id",count:{$sum:1}}},{$match:{count:{$gt:10}}},{$lookup:{from:"departments",localField:"_id",foreignField:"_id",as:"departmemnt"}},{$unwind:"$deparment"}])
+
+    Aggregation_2>
+
+-----------------------------------------------------------------------------------------------------------------------
+
+4. Find the employees who have worked in the company for more than 5 years
+-------------------------------------------------------------------------------------------
+    Aggregation_2> db.employees.aggregate([{$match:{hire_date:{$lt:"2019"}}}])
+    [
+    {
+        _id: 1,
+        name: 'John Doe',
+        department_id: 101,
+        office_id: 201,
+        age: 32,
+        salary: 75000,
+        hire_date: '2018-03-15',
+        projects: [ 301, 302 ]
+    },
+    {
+        _id: 3,
+        name: 'Bob Johnson',
+        department_id: 101,
+        office_id: 201,
+        age: 35,
+        salary: 80000,
+        hire_date: '2017-08-10',
+        projects: [ 302, 304 ]
+    },
+    {
+        _id: 4,
+        name: 'Mary Brown',
+        department_id: 103,
+        office_id: 203,
+        age: 42,
+        salary: 90000,
+        hire_date: '2016-01-25',
+        projects: [ 301, 303 ]
+    },
+    {
+        _id: 6,
+        name: 'Sarah Wilson',
+        department_id: 103,
+        office_id: 203,
+        age: 38,
+        salary: 85000,
+        hire_date: '2015-07-03',
+        projects: [ 305, 306 ]
+    },
+    {
+        _id: 9,
+        name: 'Daniel Anderson',
+        department_id: 103,
+        office_id: 203,
+        age: 36,
+        salary: 82000,
+        hire_date: '2017-11-28',
+        projects: [ 301, 303 ]
+    },
+    {
+        _id: 10,
+        name: 'Olivia Hernandez',
+        department_id: 101,
+        office_id: 201,
+        age: 33,
+        salary: 76000,
+        hire_date: '2018-07-12',
+        projects: [ 301, 302 ]
+    }
+    ]
+    Aggregation_2>  
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+5. Find the employee with the highest salary
+-----------------------------------------------------------------------------------------------------------
+    Aggregation_2> db.employees.aggregate([{$sort:{salary:-1}},{$limit:1}])
+    [
+    {
+        _id: 4,
+        name: 'Mary Brown',
+        department_id: 103,
+        office_id: 203,
+        age: 42,
+        salary: 90000,
+        hire_date: '2016-01-25',
+        projects: [ 301, 303 ]
+    }
+    ]
+    Aggregation_2>
+
+--------------------------------------------------------------------------------------------------------------
+
+6. List the names and ages of employees in the "HR" department
+------------------------------------------------------------------------------------------------------
+    Aggregation_2> db.employees.aggregate([{$lookup:{from:"departments",localField:"department_id",foreignField:"_id",as:"department"}},{$unwind:"$department"},{$match:{"department.name":"HR"}},{$project:{_id:0,name:1,age:1}}])
+    [
+    { name: 'John Doe', age: 32 },
+    { name: 'Bob Johnson', age: 35 },
+    { name: 'Michael Taylor', age: 31 },
+    { name: 'Olivia Hernandez', age: 33 }
+    ]
+    Aggregation_2> 
+
+--------------------------------------------------------------------------------------------------------
+
+7. Retrieve the names of employees who have worked on the "Employee Management System" project
+-----------------------------------------------------------------------------------------------------
+    Aggregation_2> db.employees.aggregate([{$lookup:{from:"projects",localField:"projects",foreignField:"_id",as:"employee"}},{$unwind:"$employee"},{$match:{"employee.name":"Employee Management System"}},{$project:{name:1,_id:0}}])
+    [
+    { name: 'John Doe' },
+    { name: 'Mary Brown' },
+    { name: 'Daniel Anderson' },
+    { name: 'Olivia Hernandez' }
+    ]
+    Aggregation_2>
+
+--------------------------------------------------------------------------------------------------------
+
+8. Find the employees who have not made any sales
+-------------------------------------------------------------------------------------------------------
+    Aggregation_2> db.employees.aggregate([{$lookup:{from:"sales",localField:"_id",foreignField:"employee_id",as:"employee"}},{$match:{"employee.0":{$exists:false}}}])
+
+    Aggregation_2>
+
+----------------------------------------------------------------------------------------------------------------------
+
+9. List the names of employees who have made a sale in September 2023
+---------------------------------------------------------------------------------------------------------
+    Aggregation_2> db.employees.aggregate([{ $lookup: { from: "sales", localField: "_id", foreignField: "employee_id", as: "employee" } }, { $unwind: "$employee" }, { $match: { $and: [{ "employee.sale_date": { $gte: "2023-09" } }, { "employee.sale_date": { $lt: "2023-10" } }] } }])
+    [
+    {
+        _id: 1,
+        name: 'John Doe',
+        department_id: 101,
+        office_id: 201,
+        age: 32,
+        salary: 75000,
+        hire_date: '2018-03-15',
+        projects: [ 301, 302 ],
+        employee: { _id: 1, employee_id: 1, sale_date: '2023-09-16', amount: 5000 }
+    },
+    {
+        _id: 2,
+        name: 'Jane Smith',
+        department_id: 102,
+        office_id: 202,
+        age: 28,
+        salary: 68000,
+        hire_date: '2019-05-20',
+        projects: [ 303, 304 ],
+        employee: { _id: 2, employee_id: 2, sale_date: '2023-09-17', amount: 7500 }
+    },
+    {
+        _id: 3,
+        name: 'Bob Johnson',
+        department_id: 101,
+        office_id: 201,
+        age: 35,
+        salary: 80000,
+        hire_date: '2017-08-10',
+        projects: [ 302, 304 ],
+        employee: { _id: 3, employee_id: 3, sale_date: '2023-09-16', amount: 6000 }
+    },
+    {
+        _id: 4,
+        name: 'Mary Brown',
+        department_id: 103,
+        office_id: 203,
+        age: 42,
+        salary: 90000,
+        hire_date: '2016-01-25',
+        projects: [ 301, 303 ],
+        employee: { _id: 4, employee_id: 4, sale_date: '2023-09-17', amount: 4500 }
+    },
+    {
+        _id: 5,
+        name: 'David Lee',
+        department_id: 102,
+        office_id: 202,
+        age: 29,
+        salary: 70000,
+        hire_date: '2020-11-08',
+        projects: [ 303, 305 ],
+        employee: { _id: 5, employee_id: 5, sale_date: '2023-09-18', amount: 8200 }
+    },
+    {
+        _id: 6,
+        name: 'Sarah Wilson',
+        department_id: 103,
+        office_id: 203,
+        age: 38,
+        salary: 85000,
+        hire_date: '2015-07-03',
+        projects: [ 305, 306 ],
+        employee: { _id: 6, employee_id: 6, sale_date: '2023-09-18', amount: 7100 }
+    },
+    {
+        _id: 7,
+        name: 'Michael Taylor',
+        department_id: 101,
+        office_id: 201,
+        age: 31,
+        salary: 72000,
+        hire_date: '2019-09-14',
+        projects: [ 302, 304 ],
+        employee: { _id: 7, employee_id: 7, sale_date: '2023-09-19', amount: 6800 }
+    },
+    {
+        _id: 8,
+        name: 'Emily Davis',
+        department_id: 102,
+        office_id: 202,
+        age: 27,
+        salary: 67000,
+        hire_date: '2020-03-30',
+        projects: [ 305, 306 ],
+        employee: { _id: 8, employee_id: 8, sale_date: '2023-09-19', amount: 5400 }
+    },
+    {
+        _id: 9,
+        name: 'Daniel Anderson',
+        department_id: 103,
+        office_id: 203,
+        age: 36,
+        salary: 82000,
+        hire_date: '2017-11-28',
+        projects: [ 301, 303 ],
+        employee: { _id: 9, employee_id: 9, sale_date: '2023-09-20', amount: 6000 }
+    },
+    {
+        _id: 10,
+        name: 'Olivia Hernandez',
+        department_id: 101,
+        office_id: 201,
+        age: 33,
+        salary: 76000,
+        hire_date: '2018-07-12',
+        projects: [ 301, 302 ],
+        employee: { _id: 10, employee_id: 10, sale_date: '2023-09-20', amount: 6700 }
+    }
+    ]
+    Aggregation_2>
+
+-------------------------------------------------------------------------------------------------------------
+
+10. Find the departments where the average employee age is greater than 35
+--------------------------------------------------------------------------------------------------
+    Aggregation_2> db.employees.aggregate([{$group:{_id:"$department_id",averageAge:{$avg:"$age"}}},{$match:{averageAge:{$gt:35}}},{$lookup:{from:"departments",localField:"_id",foreignField:"_id",as:"employee"}},{$unwind:"$employee"},{$project:{"employee.name":1,averageAge:1,_id:0}}])
+    [
+    { averageAge: 38.666666666666664, employee: { name: 'Engineering' } }
+    ]
+    Aggregation_2>  
+
+---------------------------------------------------------------------------------------------------------
+
+11. Find the employees who have worked on at least three different projects
+---------------------------------------------------------------------------------------------------------
+    Aggregation_2> db.employees.aggregate([{$match:{"project.2":{$exists:true}}},{$project:{name:1,_id:0}}])
+
+    Aggregation_2>
+
+------------------------------------------------------------------------------------------------------------
+
+12. List the names of employees who have not been assigned to any project
+--------------------------------------------------------------------------------------------------------
+    Aggregation_2> db.employees.aggregate([{$match:{projects:{$size:0}}},{$project:{name:1,_id:0}}])
+
+    Aggregation_2>
+
+----------------------------------------------------------------------------------------------------------
+
+13. Find the employees who have worked on projects from multiple departments
+---------------------------------------------------------------------------------------------------------
+    Aggregation_2> db.employees.aggregate([{$lookup:{from:"projects",localField:"projects",foreignField:"_id",as:"project"}},{$addFields:{uniqueDepartment:{$size:{$setUnion:"$project.department"}}}},{$match:{ uniqueDepartment:{$gt:1}}},{$project:{name:1,_id:0}}])
+    [
+    { name: 'John Doe' },
+    { name: 'Jane Smith' },
+    { name: 'Bob Johnson' },
+    { name: 'Mary Brown' },
+    { name: 'David Lee' },
+    { name: 'Sarah Wilson' },
+    { name: 'Michael Taylor' },
+    { name: 'Emily Davis' },
+    { name: 'Daniel Anderson' },
+    { name: 'Olivia Hernandez' }
+    ]
+    Aggregation_2>
+
+------------------------------------------------------------------------------------------------------------
+
+14. Find the employees who have the highest sales amount in a single sale
+--------------------------------------------------------------------------------------------------------
+    Aggregation_2> db.sales.aggregate([{$sort:{amount:-1}},{$limit:1},{$lookup:{from:"employees",localField:"employee_id",foreignField:"_id",as:"employee"}},{$project:{"employee.name":1,amount:1,_id:0}}])
+    [
+    { amount: 8200, employee: [ { name: 'David Lee' } ] }
+    ]
+    Aggregation_2>
+
+----------------------------------------------------------------------------------------------------------
+
+15. Retrieve the names of employees who have not made a sale in the last 90 days
+--------------------------------------------------------------------------------------------------------------------------------------------------
+    Aggregation_2> db.employees.aggregate([{$lookup:{from:"sales",localField:"_id",foreignField:"employee_id",as:"sale"}},{$project:{name:1,_id:0,recenetSale:{$max:"$sale.sale_date"}}},{$match:{$or:[{recentSale:{$lt: new Date(new Date().setDate(new Date().getDate()-90))}},{recentSale:{$exists:false}}]}}])
+    [
+    { name: 'John Doe', recenetSale: '2023-09-16' },
+    { name: 'Jane Smith', recenetSale: '2023-09-17' },
+    { name: 'Bob Johnson', recenetSale: '2023-09-16' },
+    { name: 'Mary Brown', recenetSale: '2023-09-17' },
+    { name: 'David Lee', recenetSale: '2023-09-18' },
+    { name: 'Sarah Wilson', recenetSale: '2023-09-18' },
+    { name: 'Michael Taylor', recenetSale: '2023-09-19' },
+    { name: 'Emily Davis', recenetSale: '2023-09-19' },
+    { name: 'Daniel Anderson', recenetSale: '2023-09-20' },
+    { name: 'Olivia Hernandez', recenetSale: '2023-09-20' }
+    ]
+    Aggregation_2>
+
+------------------------------------------------------------------------------------------------------------
+
+16. Find the departments where the total employee salaries exceed $500,000
+--------------------------------------------------------------------------------------------------------
+    Aggregation_2> db.employees.aggregate([{$group:{_id:"$department_id",totalSalary:{$sum:"$salary"}}},{$match:{totalSalary:{$gt:500000}}},{$lookup:{from:"departments",localField:"_id",foreignField:"_id",as:"department"}},{$project:{"department.name":1,_id:0}}])
+
+    Aggregation_2>
+
+----------------------------------------------------------------------------------------------------------
+
+17. List the employees who have worked on the "Payroll Software" project and are older than 35
+---------------------------------------------------------------------------------------------------------
+    Aggregation_2> db.employees.aggregate([{$lookup:{from:"projects",localField:"projects",foreignField:"_id",as:"project"}},{$unwind:"$project"},{$match:{$and:[{"project.name":"Payroll Software"},{age:{$gt:35}}]}},{$project:{name:1,_id:0}}])
+
+    Aggregation_2>
+
+------------------------------------------------------------------------------------------------------------
+
+18. Find the total number of sales and the total sales amount for each employee in the "HR" department
+---------------------------------------------------------------------------------------------------------
+    Aggregation_2> db.employees.aggregate([{$lookup:{from:"departments",localField:"department_id",foreignField:"_id",as:"department"}},{$unwind:"$department"},{$match:{"department.name":"HR"}},{$lookup:{from:"sales",localField:"_id",foreignField:"employee_id",as:"sale"}},{$project:{name:1,totalSaleCount:{$size:"$sale"},totalSaleAmount:{$sum:"$sale.amount"},_id:0}}])
+    [
+    { name: 'John Doe', totalSaleCount: 1, totalSaleAmount: 5000 },
+    { name: 'Bob Johnson', totalSaleCount: 1, totalSaleAmount: 6000 },
+    { name: 'Michael Taylor', totalSaleCount: 1, totalSaleAmount: 6800 },
+    {
+        name: 'Olivia Hernandez',
+        totalSaleCount: 1,
+        totalSaleAmount: 6700
+    }
+    ]
+    Aggregation_2>
+
+------------------------------------------------------------------------------------------------------------
+
+19. List the employees who have not been assigned to any project in the "Finance" department
+---------------------------------------------------------------------------------------------------------
+    Aggregation_2> db.employees.aggregate([{$lookup:{from:"projects",localField:"projects",foreignField:"_id",as:"project"}},{$lookup:{from:"departments",localField:"project.department",foreignField:"_id",as:"department"}},{$addFields:{isInFinace:{$in:["Finance","$department.name"]}}},{$match:{isInFinace:false}},{$project:{name:1,_id:0}}])
+    [
+    { name: 'Jane Smith' },
+    { name: 'Mary Brown' },
+    { name: 'Daniel Anderson' }
+    ]
+    Aggregation_2>
+
+------------------------------------------------------------------------------------------------------------
+
+20. List the employees who have worked on all projects in the "Engineering" department
+---------------------------------------------------------------------------------------------------------
+    Aggregation_2> db.employees.aggregate([{$lookup:{from:"projects",localField:"projects",foreignField:"_id",as:"project"}},{$unwind:"$project"},{$match:{"project.department":103}},{$group:{_id:"$_id",name:{$first:"$name"},projectName:{$addToSet:"$project._id"}}},{$lookup:{from:"projects",pipeline:[{$match:{department:103}},{$project:{_id:1}}],as:"allProject"}},{$addFields:{allProjects: { $map: { input: "$allProject", as: "proj", in: "$$proj._id" }}}},{$match:{$expr:{$setEquals: ["$projectName","$allProjects"]}}},{$project:{name:1,_id:0}}])
+
+    Aggregation_2>
+
+------------------------------------------------------------------------------------------------------------
