@@ -9,4 +9,12 @@ const userSchema=mongoose.Schema({
 
 const userModel=mongoose.model("user",userSchema)
 
-module.exports={userModel}
+const blackListingSchema=mongoose.Schema({
+    token:{type:String},
+    reftoken:{type:String}
+},{ versionKey:false})
+
+const blackListing=mongoose.model("blacklistedToken",blackListingSchema)
+
+
+module.exports={userModel,blackListing}
